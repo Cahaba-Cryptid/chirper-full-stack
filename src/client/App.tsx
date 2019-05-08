@@ -3,6 +3,7 @@ import { useState, useEffect } from
     'react';
 import ChirpList from './Components/ChirpList';
 import './scss/app';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export interface Chirp {
     id: number,
@@ -15,7 +16,7 @@ export interface Chirp {
 const App: React.SFC<IAppProps> = props => {
 
     const [chirps, setChirps] = useState<Chirp[]>([]);
-    const [userid, setUserid] = useState<string>('');
+    // const [userid, setUserid] = useState<string>('');
     const [chirp, setChirp] = useState<string>('');
 
 
@@ -46,6 +47,7 @@ const App: React.SFC<IAppProps> = props => {
 
     return (
         <>
+            <Router></Router>
             <form className="form-group p-3" onSubmit={() => addChirp()
 
             }>
