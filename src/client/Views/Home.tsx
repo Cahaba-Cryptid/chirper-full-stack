@@ -1,6 +1,14 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import ChirpList from '../Components/ChirpList'
+import ChirpCard from '../Components/ChirpCard'
+
+export interface Chirp {
+    id: number,
+    userid: number,
+    chirp: string,
+    _created: Date,
+    name: string
+}
 
 const Home = () => {
 
@@ -19,31 +27,31 @@ const Home = () => {
         getChirps();
     }, [])
 
-    const addChirp = async () => {
-        event.preventDefault()
-        let body = { userid: 1, chirp }
-        try {
-            await fetch('/api/chirps', {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify(body)
-            })
-            getChirps()
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const addChirp = async () => {
+    //     event.preventDefault()
+    //     let body = { userid: 1, chirp }
+    //     try {
+    //         await fetch('/api/chirps', {
+    //             method: "POST",
+    //             headers: { "content-type": "application/json" },
+    //             body: JSON.stringify(body)
+    //         })
+    //         getChirps()
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     return (
         <>
-            <form className="form-group p-3" onSubmit={() => addChirp()
+            {/* <form className="form-group p-3" onSubmit={() => addChirp()
 
             }>
                 <input type="text" className="form-control my-2" value={chirp} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setChirp(event.target.value)} placeholder="chirp" />
-                <input type="text" className="form-control my-2" value={userid} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserid(event.target.value)} />
-                <input type="submit" className="btn btn-primary " />
-            </form>
-            <ChirpList chirps={chirps} />
+                {/* <input type="text" className="form-control my-2" value={userid} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserid(event.target.value)} /> */}
+                {/* <input type="submit" className="btn btn-primary " />
+            </form> */} 
+            <ChirpCard chirps={chirps} />
         </>
 
     )
@@ -51,5 +59,5 @@ const Home = () => {
 }
 
 
-// export default Home;
+export default Home;
 

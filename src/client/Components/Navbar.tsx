@@ -12,7 +12,7 @@ const Navbar: React.SFC<IAppProps> = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            {/* <Link className="nav-link mr-3" to="/newchirp">New Chirp</Link> */}
+                            <Link className="nav-link mr-3" to="/newchirp">New Chirp</Link>
                         </li>
                     </ul>
                 </div>
