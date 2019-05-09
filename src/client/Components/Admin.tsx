@@ -58,11 +58,13 @@ const Admin: React.SFC<IAdminChirpsProps> = props => {
     }
 
     return (
-        <div>
-            <input value={chirp} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setChirp(event.target.value)}/>
-            <button onClick={() => handleEdit()}>Edit</button>
-            <button onClick={() => handleDelete() }>Delete</button>
-        </div>
+            <div className="card row m-3 w-50 shadow">
+                <div className="card-body p-1">
+                    <input className="m-2" value={chirp} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setChirp(event.target.value)} />
+                    <button className="btn btn-warning ml-5" onClick={() => handleEdit()}>Edit</button>
+                    <button className="btn btn-danger mx-3" onClick={() => handleDelete()}>Delete</button>
+                </div>
+            </div>
     );
 
 }
