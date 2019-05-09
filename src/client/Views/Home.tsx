@@ -27,21 +27,6 @@ const Home = () => {
         getChirps();
     }, [])
 
-    // const addChirp = async () => {
-    //     event.preventDefault()
-    //     let body = { userid: 1, chirp }
-    //     try {
-    //         await fetch('/api/chirps', {
-    //             method: "POST",
-    //             headers: { "content-type": "application/json" },
-    //             body: JSON.stringify(body)
-    //         })
-    //         getChirps()
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
     return (
         <>
             {/* <form className="form-group p-3" onSubmit={() => addChirp()

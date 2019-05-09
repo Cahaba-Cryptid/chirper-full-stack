@@ -15,7 +15,7 @@ const ChirpCard: React.SFC<ChirpCardProps> = props => {
         <>
             <main className="col-md-12">
             {props.chirps.map(chirp => (
-                <div className="card m-4 shadow">
+                <div key={chirp.id} className="card m-4 shadow">
                     <div className="card-body">
                         <h5 className="card-title">{chirp.name}:</h5>
                         <p className="card-text">{chirp.chirp}</p>

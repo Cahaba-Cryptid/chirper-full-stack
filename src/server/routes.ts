@@ -40,9 +40,9 @@ router.delete('/api/chirps/:id', async (req, res) => {
     }
 });
 
-router.put('/api/chirps', async (req, res) => {
+router.put('/api/chirps/:id', async (req, res) => {
 try {
-    let id = req.body.id
+    let id = req.params.id
     let chirp = req.body.chirp
     res.json(await db.Chirps.updateChirp(chirp, id));
 } catch (error) {

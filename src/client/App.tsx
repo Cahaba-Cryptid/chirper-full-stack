@@ -15,7 +15,7 @@ const App: React.SFC<IAppProps> = props => {
                 <Switch>
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/newchirp" component={NewChirp}></Route>
-                    <Route exact path="/admin" component={Admin}></Route>
+                    <Route exact path="/admin/:id" component={Admin}></Route>
                 </Switch>
             </Router>
             

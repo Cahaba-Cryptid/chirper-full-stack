@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
 export interface Chirp {
     id: number,
@@ -9,20 +10,13 @@ export interface Chirp {
     name: string
 }
 
-const NewChirp = () => {
+export interface INewChirpProps extends RouteComponentProps{
 
-    const [chirps, setChirps] = useState<Chirp[]>([]);
+}
+
+const NewChirp: React.SFC<INewChirpProps> = props => {
+
     const [chirp, setChirp] = useState<string>('');
-
-    const getChirps = async () => {
-        let r = await fetch('/api/chirps');
-        let chirps = await r.json();
-        setChirps(chirps)
-    }
-
-    useEffect(() => {
-        getChirps();
-    }, [])
 
     const addChirp = async () => {
         event.preventDefault()
@@ -33,7 +27,7 @@ const NewChirp = () => {
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(body)
             })
-            getChirps()
+            props.history.push('/');
         } catch (error) {
             console.log(error)
         }
